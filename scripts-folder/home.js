@@ -28,6 +28,21 @@ const labelStyle ={
 const displayAll = (cards) =>{
      let cardDiv = document.getElementById("card-container");
      cards.forEach(card => {
+      //date
+       const newDate = card.createdAt.split('T')[0];
+
+        //priority
+        let priClass = "";
+        let Priority = card.priority;
+        if(Priority === "high"){
+            priClass = "badge-error"
+        }
+        else if(Priority === "medium"){
+            priClass = "badge-warning"
+        }
+        else if(Priority === "low"){
+            priClass = "badge-ghost"
+        }
         //image badge
          const statusBadge = card.status === "open" ? "./assets/Open-Status.png" : "./assets/Closed- Status .png";
         //border color
@@ -48,19 +63,19 @@ const displayAll = (cards) =>{
   <div class="card-body">
      <div class="flex justify-between">
         <img src="${statusBadge}" alt="">
-        <div class="badge badge-secondary">${card.priority}</div>
+        <div class="badge badge-soft ${priClass}">${card.priority.toUpperCase()}</div>
      </div>
     <h2 class="card-title">
      ${card.title}
      
     </h2>
-    <p class = "line-clamp-2 overflow-hidden max-h-10">${card.description}</p>
+    <p class = "line-clamp-2 overflow-hidden max-h-10 text-[#64748B]">${card.description}</p>
     <span class="card-actions justify-start">
       ${labelsHTML}
     </span>
-    <hr>
-    <p>#${card.id} ${card.author}</p>
-    <p>${card.createdAt}</p>
+    <div class="flex-grow border-t border-gray-200"></div>
+    <p class="text-[#64748B]">#${card.id} by ${card.author}</p>
+    <p class="text-[#64748B]">${newDate}</p>
   </div>
 </div>
         `
