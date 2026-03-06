@@ -1,10 +1,16 @@
+let allCards = [];
 //loading ALl
 const loadAll = () =>{
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
     fetch(url)
     .then((res)=>res.json())
-    .then((data)=>displayAll(data.data));
+    .then((data)=>{
+        allCards = data.data;
+        displayAll(allCards);
+    });
 }
+
+
 //badge object
 const labelStyle ={
     "bug": {
@@ -27,6 +33,7 @@ const labelStyle ={
 //display all
 const displayAll = (cards) =>{
      let cardDiv = document.getElementById("card-container");
+     cardDiv.innerHTML = "";
      cards.forEach(card => {
       //date
        const newDate = card.createdAt.split('T')[0];
@@ -83,4 +90,15 @@ const displayAll = (cards) =>{
      });
 }
 
+//filter
+
+const filterByStatus = (status)=>{
+    if(status === 'all'){
+        displayAll(allCards);
+    }
+    else{
+        const filtered = allCards.filter(card => card.status === status);
+        displayAll(filtered);
+    }
+}
 loadAll();
