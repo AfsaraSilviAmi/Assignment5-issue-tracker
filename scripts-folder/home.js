@@ -33,6 +33,7 @@ const labelStyle ={
 //display all
 const displayAll = (cards) =>{
      let cardDiv = document.getElementById("card-container");
+     document.getElementById("issueNum").innerText = cards.length;
      cardDiv.innerHTML = "";
      cards.forEach(card => {
       //date
@@ -93,6 +94,7 @@ const displayAll = (cards) =>{
 //filter
 
 const filterByStatus = (status)=>{
+    toggleBtn(`${status}-btn`);
     if(status === 'all'){
         displayAll(allCards);
     }
@@ -101,4 +103,21 @@ const filterByStatus = (status)=>{
         displayAll(filtered);
     }
 }
+
+//toggle buttons
+
+const toggleBtn = (id) =>{
+  const allBtns = document.querySelectorAll(".filter-btn");
+  allBtns.forEach(btn=> {
+    btn.classList.remove("btn-primary");
+    btn.classList.add("btn-ghost");
+  });
+  const activeBtn = document.getElementById(id);
+  if(activeBtn){
+    activeBtn.classList.add("btn-primary");
+    activeBtn.classList.remove("btn-ghost");
+  }
+}
+
+
 loadAll();

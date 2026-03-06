@@ -46,9 +46,9 @@
     <!-- toggle buttons -->
     <section class="w-11/12 mx-auto">
     <section class="bg-base-100 p-6 rounded-lg mb-6 shadow">
-        <button onclick="filterByStatus('all')" class="btn mr-2">All</button>
-        <button onclick="filterByStatus('open')" class="btn mr-2">Open</button>
-        <button onclick="filterByStatus('closed')" class="btn mr-2">Closed</button>
+        <button id="all-btn" onclick="filterByStatus('all')" class="btn btn-primary filter-btn mr-2">All</button>
+        <button id ="open-btn" onclick="filterByStatus('open')" class="btn btn-ghost filter-btn mr-2">Open</button>
+        <button id = "closed-btn" onclick="filterByStatus('closed')" class="btn btn-ghost filter-btn  mr-2">Closed</button>
     </section>
 
     <!-- cards and others -->
@@ -59,7 +59,7 @@
             <img src="./assets/Aperture.png" alt="" class="bg-[#ECE4FF] rounded-full p-1.5">
             </div>
             <div>
-                <p class="font-semibold text-[20px]"><span>0</span> Issues</p>
+                <p class="font-semibold text-[20px]"><span id="issueNum">0</span> Issues</p>
                 <p class="text-[#64748B]">Track and manage your project issues</p>
 
             </div>
@@ -72,7 +72,7 @@
         </div>
         </div>
         <!-- cards -->
-        <div id = "card-container" class="grid lg:grid-cols-4 gap-4">
+        <div id = "card-container" class="grid lg:grid-cols-4 gap-4 p-2 bg-base-200">
            
         </div>
      </section>
