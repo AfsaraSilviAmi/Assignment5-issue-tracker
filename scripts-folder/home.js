@@ -28,6 +28,10 @@ const labelStyle ={
 const displayAll = (cards) =>{
      let cardDiv = document.getElementById("card-container");
      cards.forEach(card => {
+        //image badge
+         const statusBadge = card.status === "open" ? "./assets/Open-Status.png" : "./assets/Closed- Status .png";
+        //border color
+        const borderCol = card.status === "open" ? " border-t-green-500" : "border-t-purple-500"
         //badge
         const labelsHTML = card.labels.map(labelName =>{
             const styleLabel = labelStyle[labelName] || {color:"badge-primary"}
@@ -39,10 +43,11 @@ const displayAll = (cards) =>{
         const makeCard = document.createElement("div");
         
         makeCard.innerHTML =`
-           <div class="card bg-base-100 h-full shadow-md border-t-green-500 border-t-4">
+           <div class="card bg-base-100 h-full shadow-md ${borderCol} border-t-4">
 
   <div class="card-body">
-     <div class="flex justify-end">
+     <div class="flex justify-between">
+        <img src="${statusBadge}" alt="">
         <div class="badge badge-secondary">${card.priority}</div>
      </div>
     <h2 class="card-title">
