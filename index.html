@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Login</title>
+     <!-- tailwind and daisyUI -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+     <!-- google font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+     <style>
+        .font-geist{
+             font-family: "Geist", sans-serif;
+        }
+     </style>
+</head>
+<body class="font-geist bg-base-200">
+    <section class="flex justify-center items-center min-h-screen">
+        <fieldset class="fieldset rounded-box w-[450px] p-4 bg-white">
+        <div class="flex flex-col justify-center items-center">
+            <img src="./assets/github-logo.png" alt="">
+            <h2 class="font-semibold text-[24px]">GitHub Issues Tracker</h2>
+            <p class="text-[16px] text-[#64748B]">Sign in to manage your issues</p>
+
+        </div>
+  <label class="label font-medium text-[16px] text-black">Username</label>
+  <input type="text" class="input w-full rounded-lg" placeholder="Enter Username" />
+  <p class="text-[#4A00FF]">Default:admin</p>
+
+  <label class="label font-medium text-[16px] text-black">Password</label>
+  <input type="password" class="input w-full rounded-lg" placeholder="Password" />
+  <p class="text-[#4A00FF]">Default:admin123</p>
+  <button class="btn btn-primary mt-4">Sign in</button>
+</fieldset>
+    </section> 
+   
+</body>
+</html>
