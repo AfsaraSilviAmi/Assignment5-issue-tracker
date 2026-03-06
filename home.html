@@ -12,15 +12,17 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
-
+<!-- font awesome cdn -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <style>
         .font-geist{
              font-family: "Geist", sans-serif;
         }
      </style>
 </head>
-<body class="font-geist">
-    <header>
+<body class="font-geist bg-base-200">
+    <!-- navbar -->
+    <header class="mb-10"> 
         <div class="navbar bg-base-100 shadow-sm">
   <div class="flex-1">
 
@@ -31,13 +33,69 @@
   </div>
   <div class="join">
   <div>
-    <label class="input validator">
+    <label class="input validator text-gray-500 text-[16px] rounded-lg mr-15">
+        <i class="fa-brands fa-sistrix"></i>
       <input type="text" placeholder="Search issues..." required />
     </label>
   </div>
-  <button class="btn btn-neutral">New Issues</button>
+  <button class="btn btn-primary rounded-lg mr-5">Search</button>
 </div>
 </div>
     </header>
+
+    <!-- toggle buttons -->
+    <section class="w-11/12 mx-auto">
+    <section class="bg-base-100 p-6 rounded-lg mb-6 shadow">
+        <button class="btn mr-2">All</button>
+        <button class="btn mr-2">Open</button>
+        <button class="btn mr-2">Closed</button>
+    </section>
+
+    <!-- cards and others -->
+     <section class="bg-base-100 rounded-sm">
+        <div class="flex justify-between p-5 shadow-sm">
+            <div class="flex">
+            <div class="mr-2">
+            <img src="./assets/Aperture.png" alt="" class="bg-[#ECE4FF] rounded-full p-1.5">
+            </div>
+            <div>
+                <p class="font-semibold text-[20px]"><span>0</span> Issues</p>
+                <p class="text-[#64748B]">Track and manage your project issues</p>
+
+            </div>
+        </div>
+        <div>
+            <span class="text-[#00A96E] text-[12px] mr-1"><i class="fa-solid fa-circle"></i></span>
+           <span class="mr-2 font-medium text-[18px]">Open</span>
+           <span class="text-[#A855F7] text-[12px] mr-1"><i class="fa-solid fa-circle"></i></span>
+           <span class="font-medium text-[18px]">Closed</span>
+        </div>
+        </div>
+        <!-- cards -->
+        <div class="grid grid-cols-4">
+            <div class="card bg-base-100 w-96 shadow-sm  border-t-green-500 border-t-4">
+
+  <div class="card-body">
+     <div class="flex justify-end">
+        <div class="badge badge-secondary">NEW</div>
+     </div>
+    <h2 class="card-title">
+      Fix Nevigation something something mobile devices
+     
+    </h2>
+    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+    <div class="card-actions justify-start">
+      <div class="badge badge-outline">Fashion</div>
+      <div class="badge badge-outline">Products</div>
+    </div>
+    <hr>
+    <p>#1 by John Doe</p>
+    <p>Date</p>
+  </div>
+</div>
+        </div>
+     </section>
+    </section>
+    <script src="./scripts-folder/home.js"></script>
 </body>
 </html>
