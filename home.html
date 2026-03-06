@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Issuer HomePage</title>
+     <!-- tailwind and daisyUI -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+     <!-- google font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+     <style>
+        .font-geist{
+             font-family: "Geist", sans-serif;
+        }
+     </style>
+</head>
+<body class="font-geist">
+    <header>
+        <div class="navbar bg-base-100 shadow-sm">
+  <div class="flex-1">
+
+    <a class="btn btn-ghost text-xl">
+        <img class="w-10" src="./assets/github-logo.png" alt="">
+        <p>GitHub Issues Tracker</p>
+    </a>
+  </div>
+  <div class="join">
+  <div>
+    <label class="input validator">
+      <input type="text" placeholder="Search issues..." required />
+    </label>
+  </div>
+  <button class="btn btn-neutral">New Issues</button>
+</div>
+</div>
+    </header>
+</body>
+</html>

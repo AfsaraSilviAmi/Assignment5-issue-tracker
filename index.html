@@ -20,8 +20,8 @@
      </style>
 </head>
 <body class="font-geist bg-base-200">
-    <section class="flex justify-center items-center min-h-screen">
-        <fieldset class="fieldset rounded-box w-[450px] p-4 bg-white">
+    <section class="flex justify-center items-center min-h-screen"> 
+        <fieldset class="fieldset rounded-box w-[450px] p-4 bg-white shadow-md">
         <div class="flex flex-col justify-center items-center mb-5 mt-4">
             <img src="./assets/github-logo.png" alt="">
             <h2 class="font-semibold text-[24px]">GitHub Issues Tracker</h2>
@@ -29,13 +29,13 @@
 
         </div>
   <label class="label font-medium text-[16px] text-black">Username</label>
-  <input type="text" class="input w-full rounded-lg" placeholder="Enter Username" />
+  <input id="userName" type="text" class="input w-full rounded-lg" placeholder="Enter Username" />
   <p class="text-[#4A00FF] mb-2">Default:admin</p>
 
   <label class="label font-medium text-[16px] text-black">Password</label>
-  <input type="password" class="input w-full rounded-lg" placeholder="Password" />
+  <input id="pass" type="password" class="input w-full rounded-lg" placeholder="Password" />
   <p class="text-[#4A00FF]">Default:admin123</p>
-  <button class="btn btn-primary mt-4 mb-3">Sign in</button>
+  <button id = "sign-in-btn" class="btn btn-primary mt-4 mb-3">Sign in</button>
  <div class="flex items-center mb-2">
     <div class="flex-grow border-t border-gray-200"></div>
     <span class="text-[16px]">OR</span>
@@ -50,6 +50,6 @@
  </div>
 </fieldset>
     </section> 
-   
+   <script src="./scripts-folder/login.js"></script>
 </body>
 </html>
