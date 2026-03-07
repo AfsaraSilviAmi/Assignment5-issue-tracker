@@ -1,6 +1,7 @@
 let allCards = [];
 //loading ALl
 const loadAll = () =>{
+    manageSpinner(true);
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
     fetch(url)
     .then((res)=>res.json())
@@ -33,6 +34,7 @@ const labelStyle ={
 //display all
 const displayAll = (cards) =>{
      let cardDiv = document.getElementById("card-container");
+     //number of Issues
      document.getElementById("issueNum").innerText = cards.length;
      cardDiv.innerHTML = "";
      cards.forEach(card => {
@@ -89,12 +91,14 @@ const displayAll = (cards) =>{
         `
         cardDiv.append(makeCard);
      });
+      manageSpinner(false);
 }
 
 //filter
 
 const filterByStatus = (status)=>{
     toggleBtn(`${status}-btn`);
+    manageSpinner(true);
     if(status === 'all'){
         displayAll(allCards);
     }
@@ -118,6 +122,17 @@ const toggleBtn = (id) =>{
     activeBtn.classList.remove("btn-ghost");
   }
 }
+//spinner
+const manageSpinner = (status)=>{
+    if(status == true){
+       document.getElementById("spinner").classList.remove("hidden");
+       document.getElementById("card-container").classList.add("hidden");
+    }else{
+          document.getElementById("spinner").classList.add("hidden");
+         document.getElementById("card-container").classList.remove("hidden");
+      
+       
+    }
+}
 
-
-loadAll();
+loadAll(); 
