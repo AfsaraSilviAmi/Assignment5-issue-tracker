@@ -27,8 +27,14 @@ const loadSearch = (searchText) =>{
     fetch(url)
     .then((res)=>res.json())
     .then((data)=>{
-        console.log(data.data);
+       displayAll(data.data)
     });
+}
+//search handler
+
+const handleSearch = () =>{
+    const searchText = document.getElementById("search-input").value.trim();
+    loadSearch(searchText);
 }
 
 //badge object
