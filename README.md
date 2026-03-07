@@ -21,6 +21,6 @@ Ans:arrow function: arrow function is just the shorter version of a regular func
 }
 
 5️⃣ What are template literals?
-Ans:template literals: template literals is a way to write string in a dynamic way using backticks(`string body`). We can dynamically assign values using template literals which are not possible for double quote("") or single quote('').
+Ans:template literals: template literals is a way to write string in a dynamic way using backticks(``). We can dynamically assign values using template literals which are not possible for double quote("") or single quote('').
 
 
