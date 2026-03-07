@@ -21,6 +21,16 @@ const loadById = (id) =>{
     });
 }
 
+//load search
+const loadSearch = (searchText) =>{
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`;
+    fetch(url)
+    .then((res)=>res.json())
+    .then((data)=>{
+        console.log(data.data);
+    });
+}
+
 //badge object
 const labelStyle ={
     "bug": {
@@ -121,8 +131,9 @@ const dispById = (card)=>{
             priClass = "badge-ghost"
         }
 //status
-        const statusColor = card.status === "open" ? "bg-green-500": "bg-purple-500";
+        const statusColor = card.status === "open" ? "bg-green-400": "bg-purple-500";
         const statusWord = card.status === "open" ? "Opened": "Closed";
+        const PriorityLow = card.priority === "low" ? "text-black" : "text-white";
 
         //date
        const newDate = card.createdAt.split('T')[0];
@@ -137,19 +148,22 @@ const dispById = (card)=>{
 
         //assignee
         const Assignee = card.assignee === "" ? "No Assignee" : `${card.assignee}`;
+
    makeModalDiv.innerHTML = `
-   <h3 class="text-lg font-bold">${card.title}</h3>
-    <p><div class="badge ${statusColor} text-white p-4 rounded-2xl">${statusWord}</div>•${statusWord} by ${card.author} • ${newDate}</p>
+   <h3 class="text-2xl font-bold mb-4">${card.title}</h3>
+    <div class="mb-2">
+    <p><div class="badge ${statusColor} text-white p-4 rounded-2xl text-[16px]">${statusWord}</div> <span class = "text-[#64748B] text-[15px]">• ${statusWord} by ${card.author} • ${newDate}<span></p>
+    </div>
     <span>${labelsHTML}</span>
-   <div> <p>descriptions</p></div>
-    <div class="flex justify-around">
+   <div class="mt-2"> <p class="text-[#64748B] text-[17px]">${card.description}</p></div>
+    <div class="flex justify-around bg-base-200 mt-4 p-4">
         <div>
-           <p>Assignee:</p>
-           <p>${Assignee}</p>
+           <p class="text-[#64748B]">Assignee:</p>
+           <p class="font-semibold">${Assignee}</p>
         </div>
         <div>
-           <p>Priority</p>
-           <span><div class="badge ${priClass} rounded-xl"> ${Priority.toUpperCase()}</div></span>
+           <p class="text-[#64748B]">Priority</p>
+           <span><div class="badge ${priClass} ${PriorityLow} p-3 rounded-xl"> ${Priority.toUpperCase()}</div></span>
           
         </div>
     </div>
