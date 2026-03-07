@@ -45,7 +45,7 @@
 
     <!-- toggle buttons -->
     <section class="w-11/12 mx-auto">
-    <section class="bg-base-100 p-6 rounded-lg mb-6 shadow">
+    <section class="bg-base-100 p-6 rounded-lg mb-6 shadow sticky top-0 z-10">
         <button id="all-btn" onclick="filterByStatus('all')" class="btn btn-primary filter-btn mr-2">All</button>
         <button id ="open-btn" onclick="filterByStatus('open')" class="btn btn-ghost filter-btn mr-2">Open</button>
         <button id = "closed-btn" onclick="filterByStatus('closed')" class="btn btn-ghost filter-btn  mr-2">Closed</button>
@@ -83,6 +83,23 @@
         </div>
      </section>
     </section>
+    <!-- modal -->
+     <section>
+<!-- <button class="btn" onclick="myModal.showModal()">open modal</button> -->
+<dialog id="myModal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+      <div id="modal-div">
+
+      </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+     </section>
     
     
     <script src="./scripts-folder/home.js"></script>

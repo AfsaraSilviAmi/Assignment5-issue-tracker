@@ -11,6 +11,15 @@ const loadAll = () =>{
     });
 }
 
+//load by Id
+const loadById = (id) =>{
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
+    fetch(url)
+    .then((res)=>res.json())
+    .then((data)=>{
+        dispById(data.data);
+    });
+}
 
 //badge object
 const labelStyle ={
@@ -68,7 +77,7 @@ const displayAll = (cards) =>{
         const makeCard = document.createElement("div");
         
         makeCard.innerHTML =`
-           <div class="card bg-base-100 h-full shadow-md ${borderCol} border-t-4">
+           <div onclick="loadById(${card.id})" class="card bg-base-100 h-full shadow-md ${borderCol} border-t-4">
 
   <div class="card-body">
      <div class="flex justify-between">
@@ -93,7 +102,62 @@ const displayAll = (cards) =>{
      });
       manageSpinner(false);
 }
+//display modal
+const dispById = (card)=>{
+   const modalDiv = document.getElementById("modal-div");
+   modalDiv.innerHTML = "";
+   
+   const makeModalDiv = document.createElement("div");
 
+        let priClass = "";
+        let Priority = card.priority;
+        if(Priority === "high"){
+            priClass = "badge-error"
+        }
+        else if(Priority === "medium"){
+            priClass = "badge-warning"
+        }
+        else if(Priority === "low"){
+            priClass = "badge-ghost"
+        }
+//status
+        const statusColor = card.status === "open" ? "bg-green-500": "bg-purple-500";
+        const statusWord = card.status === "open" ? "Opened": "Closed";
+
+        //date
+       const newDate = card.createdAt.split('T')[0];
+       //label
+        const labelsHTML = card.labels.map(labelName =>{
+            const styleLabel = labelStyle[labelName] || {color:"badge-primary"}
+            return `<span class ="badge badge-outline badge-soft ${styleLabel.color}">
+            ${labelName.toUpperCase()}
+            </span>`
+
+        }).join("");
+
+        //assignee
+        const Assignee = card.assignee === "" ? "No Assignee" : `${card.assignee}`;
+   makeModalDiv.innerHTML = `
+   <h3 class="text-lg font-bold">${card.title}</h3>
+    <p><div class="badge ${statusColor} text-white p-4 rounded-2xl">${statusWord}</div>•${statusWord} by ${card.author} • ${newDate}</p>
+    <span>${labelsHTML}</span>
+   <div> <p>descriptions</p></div>
+    <div class="flex justify-around">
+        <div>
+           <p>Assignee:</p>
+           <p>${Assignee}</p>
+        </div>
+        <div>
+           <p>Priority</p>
+           <span><div class="badge ${priClass} rounded-xl"> ${Priority.toUpperCase()}</div></span>
+          
+        </div>
+    </div>
+   `
+   modalDiv.appendChild(makeModalDiv);
+    document.getElementById("myModal").showModal();
+
+}
 //filter
 
 const filterByStatus = (status)=>{
