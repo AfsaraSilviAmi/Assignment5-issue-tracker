@@ -31,7 +31,6 @@ const loadSearch = (searchText) =>{
     });
 }
 //search handler
-
 const handleSearch = () =>{
     const searchText = document.getElementById("search-input").value.trim();
     loadSearch(searchText);
